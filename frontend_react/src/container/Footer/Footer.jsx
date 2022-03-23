@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-
+import { motion } from 'framer-motion';
 import { images } from '../../constants';
 import {AppsWrap} from '../../wrapper';
 import {client} from '../../client'
@@ -38,39 +38,47 @@ const Footer = () => {
 
   return (
     <>
-      <h2 className="head-text">Lets chat <span> :)</span></h2>
 
-      <div className="app__footer-cards">
-        <div className="app__footer-card ">
-          <img src={images.email} alt="email" />
-          <a href="mailto:hello@micael.com" className="p-text">alexiavetere@gmail.com</a>
-        </div>
-      </div>
+
       {!isFormSubmitted ? (
+          <>
+            <h2 className="head-text">Lets chat <span> :)</span></h2>
+            <div className="app__footer-cards">
+              <div className="app__footer-card ">
+                <img src={images.email} alt="email" onChange={handleChangeInput} />
+                <a href="alexiavetere@gmail.com" className="p-text" onChange={handleChangeInput}>alexiavetere@gmail.com</a>
+              </div>
+            </div>
         <div className="app__footer-form app__flex">
-          <div className="app__flex">
-            <input className="p-text" type="text" placeholder="Your Name" name="username" value={username} onChange={handleChangeInput} />
-          </div>
-          <div className="app__flex">
-            <input className="p-text" type="email" placeholder="Your Email" name="email" value={email} onChange={handleChangeInput} />
-          </div>
-          <div>
-            <textarea
-              className="p-text"
-              placeholder="Your Message"
-              value={message}
-              name="message"
-              onChange={handleChangeInput}
-            />
-          </div>
-          <button type="button" className="p-text" onClick={handleSubmit}>{!loading ? 'Send Message' : 'Sending...'}</button>
-        </div>
+            <div className="app__flex">
+              <input className="p-text" type="text" placeholder="Your Name" name="username" value={username} onChange={handleChangeInput} />
+            </div>
+            <div className="app__flex">
+              <input className="p-text" type="email" placeholder="Your Email" name="email" value={email} onChange={handleChangeInput} />
+            </div>
+            <div>
+              <textarea
+                className="p-text"
+                placeholder="Your Message"
+                value={message}
+                name="message"
+                onChange={handleChangeInput} />
+            </div>
+            <button type="button" className="p-text" onClick={handleSubmit}>{!loading ? 'Send Message' : 'Sending...'}</button>
+          </div></>
       ) : (
-        <div>
-          <h3 className="head-text">
+        <>
+        <motion.div
+        whileInView={{ opacity: [0, 1] }}
+        transition={{ duration: 0.5 }}
+        >
+        <div className='app__footer-email'>
+          <h2 className="head-text" style={{color: 'var(--gray-color)'}}>
             Thank you for getting in touch!
-          </h3>
+          </h2>
         </div>
+        </motion.div>
+        </>
       )}
     </>
   );

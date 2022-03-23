@@ -4,7 +4,7 @@ import { SiGmail } from 'react-icons/si';
 
 const SocialMedia = () => {
   return (
-    <div className='app__social'>
+    <div className='app__social' style={{ position:'fixed', top: '40%'}}>
         <div>
         <BsLinkedin />
         </div>
