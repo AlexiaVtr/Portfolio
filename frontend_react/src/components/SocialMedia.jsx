@@ -11,12 +11,16 @@ const SocialMedia = () => {
           <BsLinkedin />
         </div>
         </a>
+        <a href="https://github.com/AlexiaVtr" target="_blank" rel="noopener noreferrer">
         <div>
         <BsGithub />
         </div>
+        </a>
+        <a href="mailto:alexiavetere@gmail.com" target="_blank" rel="noopener noreferrer">
         <div>
         <SiGmail />
         </div>
+        </a>
     </div>
   )
 }
