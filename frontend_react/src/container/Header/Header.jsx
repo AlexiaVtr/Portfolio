@@ -27,13 +27,13 @@ const Header = () => {
     >
       <div className='app__header-badge'> 
       <div className='badge-cmp app__flex'>
-        <div style={{marginLeft: 20}}>
+        <div>
           <p className='p-text'>Hello, I am</p>
-          <p className='head-text'>Alexia</p>
+          <p className='head-text'> <span> Alexia</span> </p>
         </div>
       </div>
       <div className='tag-cmp app__flex'>
-          <p className='p-text'>Software Developer</p>
+          <p className='header-text' style={{ color: 'var(--gray-color)', textTransform: 'capitalize' }}>a Software Developer</p>
       </div>
       </div>
     </motion.div>
@@ -58,7 +58,7 @@ const Header = () => {
      whileInView={scaleVariants.whileInView}
      className="app__header-circles"
      >
-      {[images.golang, images.redux, images.typescript].map(
+      {[images.golang, images.react, images.node].map(
         (circle, index) => (
           <div className='circle-cmp app__flex' key={`circle-${index}`}>
             <img src={circle} alt="circle" />
